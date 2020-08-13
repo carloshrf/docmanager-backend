@@ -32,7 +32,7 @@ appointmentsRouter.post('/', (request, response) => {
 
     return response.json(appointment);
   } catch (err) {
-    return response.json(400).json({ error: err.message });
+    return response.status(400).json({ error: err.message });
   }
 });
 
