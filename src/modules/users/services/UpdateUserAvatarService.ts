@@ -38,6 +38,8 @@ class UpdateUserAvatarService {
 
     user.avatar = avatarFileName;
 
+    await this.usersRepository.save(user);
+
     return user;
   }
 }
