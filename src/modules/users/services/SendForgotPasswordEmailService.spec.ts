@@ -19,11 +19,10 @@ describe('SendForgotPasswordEmail', () => {
     sendForgotPasswordEmail = new SendForgotPasswordEmailService(
       fakeUsersRepository,
       fakeMailProvider,
-      fakeUserTokensRepository
-      );
+      fakeUserTokensRepository,
+    );
   });
   it('should bea ble to recover the password using the email', async () => {
-
     const sendMail = jest.spyOn(fakeMailProvider, 'sendMail');
 
     await fakeUsersRepository.create({
@@ -45,7 +44,6 @@ describe('SendForgotPasswordEmail', () => {
         email: 'cj@email.com',
       }),
     ).rejects.toBeInstanceOf(AppError);
-
   });
 
   it('should generate a forgot password token', async () => {
